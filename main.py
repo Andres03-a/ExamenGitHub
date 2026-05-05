@@ -1,5 +1,6 @@
-from consola import *
-from gestor_servicios import registrar, editar_servicio, eliminar_servicio
+from registrar import registrar
+from edit import editar_servicio
+from delete import eliminar_servicio
 
 while True:
     print("====================================================")
@@ -10,7 +11,7 @@ while True:
     print("3. Eliminar servicios")
     print("4. Salir")
 
-    opcion = input("Digite una opción: ")
+    opcion = input("Digite una opción: ").strip()
     print()
 
     if opcion == "1":
@@ -23,18 +24,18 @@ while True:
         eliminar_servicio()
 
     elif opcion == "4":
-        salir = input("¿Quieres salir del programa Si/No: ").capitalize()
-        if salir == "Si":
-            print("-Saliste del programa...\n")
+        salir = input("¿Quieres salir del programa (Si/No): ").strip().lower()
+        if salir == "si":
+            print("Saliste del programa...\n")
             break
-        elif salir == "No":
+        elif salir == "no":
             print()
             continue
         else:
-            print("-Opción inválida.\n")
+            print("Opción inválida.\n")
 
     else:
-        print("-Error: No existe la opción.\n")
+        print("Error: No existe la opción.\n")
 
     input("Presiona Enter para continuar...")
     print()
