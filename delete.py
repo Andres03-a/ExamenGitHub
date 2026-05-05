@@ -1,3 +1,5 @@
+from data import *
+
 def eliminar_servicio():
     servicios = cargar_servicios()
 
@@ -18,11 +20,11 @@ def eliminar_servicio():
         print("Debe ingresar un número.\n")
         return
 
-    confirmacion = input("¿Seguro que quieres eliminar este servicio? (Si/No): ").capitalize()
+    confirmacion = input("¿Seguro que quieres eliminar este servicio? (Si/No): ").strip().lower()
 
-    if confirmacion == "Si":
+    if confirmacion == "si":
         eliminado = servicios.pop(opcion)
         guardar_servicios(servicios)
-        print(f"✔ Servicio '{eliminado['nombre']}' eliminado.\n")
+        print(f"Servicio '{eliminado['nombre']}' eliminado.\n")
     else:
         print("Operación cancelada.\n")
